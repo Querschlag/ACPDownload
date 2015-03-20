@@ -74,8 +74,10 @@
 }
 
 - (void)setIndicatorStatus:(ACPDownloadStatus)newStatus {
-    self.currentStatus = newStatus;
-    [self setNeedsDisplay];
+    if (self.currentStatus != newStatus) {
+        self.currentStatus = newStatus;
+        [self setNeedsDisplay];
+    }
 }
 
 - (void)resetAnimations {
